@@ -1,0 +1,41 @@
+h1{
+  font-family: "Bitcount Prop Single", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0,
+    "CRSV" 0.5,
+    "ELSH" 0,
+    "ELXP" 0;
+}
+
+p{
+    color:tomato;
+    font-size:21px;
+}
+
+.chapo{
+    font-size: 48px;
+}
+
+.header{
+    background: lightgrey;
+    padding:48px;
+    margin:48px;
+    display : grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.header-grid{
+    display: grid;
+    grid-template-columns: 1fr auto;
+}
+
+
+.header-nav {
+    display : grid; 
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column: span 2;
+}
