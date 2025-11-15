@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Léa Tramati - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="portfolio_01.css">
+</head>
+<body class="carousel-active">
+    <header>
+        <div class="tagline">Student, ESAD AMIENS</div>
+        <nav class="nav">
+            <a href="portfolio_01.html" class="active">Home</a>
+    
+            <a href="cvtest.html">CV</a>
+        
+        </nav>
+        <div class="contact">
+            <a href="message.html" style="text-decoration: underline; color: inherit;">Send me a message</a>
+        </div>
+    </header>
+
+    <!-- CAROUSEL MODE -->
+    <div class="hero">
+        <div class="hero-text">LÉATRAMATI</div>
+        
+        <div class="projects-container">
+            <div class="projects-grid" id="projectsGrid"></div>
+        </div>
+    </div>
+
+    <!-- LIST MODE -->
+    <div class="list-content">
+        <div class="hero-section">
+            <div class="hero-text-list">
+                LÉA<span class=>TRAMATI</span>
+            </div>
+        </div>
+
+        <div class="clients-section">
+            <div class="clients-list">
+                <span>Zaha Hadid, </span><span class=>Baskerville</span><span>,</span><br>
+                <span>Haute Couture, Splash,</span><br>
+                <span>Vinyls,</span><br>
+                <span>Metamorphosis, </span><span class="highlight">Portofino</span><span>,</span><br>
+                <span>Portofino font</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-left">
+            <a href="#" class="active" id="carouselBtn">Carousel</a>
+            <a href="#" id="listBtn">List</a>
+        </div>
+        <div class="footer-right">Amiens, FR</div>
+    </div>
+
+    <!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROSS mason</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            overflow-x: hidden;
+            background: #f5f5f5;
+        }
+
+        .loader-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        .loader-container.fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .logo-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            opacity: 0;
+            animation: fadeInLogo 1s ease forwards 0.3s;
+        }
+
+        @keyframes fadeInLogo {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .text-left {
+            font-size: 72px;
+            font-weight: 800;
+            letter-spacing: -2px;
+            color: #000;
+            transform: translateX(-50px);
+            opacity: 0;
+            animation: slideInLeft 0.8s ease forwards 0.5s;
+        }
+
+        .text-right {
+            font-size: 72px;
+            font-style: bold ;
+            font-weight: 800;
+            letter-spacing: -2px;
+            color: #000;
+            transform: translateX(50px);
+            opacity: 0;
+            animation: slideInRight 0.8s ease forwards 0.5s;
+        }
+
+        @keyframes slideInLeft {
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInRight {
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .image-container {
+            width: 200px;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 8px;
+            position: relative;
+            transform: scale(0.8);
+            opacity: 0;
+            animation: scaleIn 0.8s ease forwards 0.7s;
+        }
+
+        @keyframes scaleIn {
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .main-content {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.8s ease 0.5s;
+            padding: 40px;
+        }
+
+        .main-content.visible {
+            opacity: 1;
+        }
+
+        .content-wrapper {
+            max-width: 1200px;
+            text-align: center;
+        }
+
+        .content-wrapper h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        .content-wrapper p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .text-left,
+            .text-right {
+                font-size: 48px;
+            }
+
+            .image-container {
+                width: 150px;
+                height: 200px;
+            }
+
+            .logo-wrapper {
+                gap: 20px;
+            }
+
+            .content-wrapper h1 {
+                font-size: 36px;
+            }
+
+            .content-wrapper p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="loader-container" id="loader">
+        <div class="logo-wrapper">
+            <div class="image-container">
+                <img src="img/Untitled design.png" alt="Design">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const loader = document.getElementById('loader');
+                const mainContent = document.getElementById('mainContent');
+                
+                loader.classList.add('fade-out');
+                
+                setTimeout(() => {
+                    mainContent.classList.add('visible');
+                }, 500);
+            }, 2500);
+        });
+    </script>
+    <script src="portfolio_01.js"></script>
+
+
+</body>
+</html>
