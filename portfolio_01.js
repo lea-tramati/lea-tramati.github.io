@@ -11,14 +11,14 @@ const listBtn = document.getElementById('listBtn');
 
 // Données des projets
 const projects = [
-    { title: 'Zaha Hadid, the box', type: '[ESAD AMIENS]', img: 'img/1706522245-found-stella-artois-still-5.avif' },
-    { title: 'Baskerville, specimen', type: '[ESAD AMIENS]', img: 'img/1695829139-community_2-2-min.avif' },
-    { title: 'Haute Couture', type: '[ESAD AMIENS]', img: 'img/1692388902-346300243_959632565224075_8512582370672738388_n.avif' },
-    { title: 'Splash', type: '[ESAD AMIENS]', img: 'img/1695825726-sese_v001_window.avif' },
-    { title: 'Vinyls', type: '[ESAD AMIENS]', img: 'img/1689061639-sona_sh03.avif' },
-    { title: 'Metamorphosis', type: '[ESAD AMIENS]', img: 'img/1680684622-lp_ss23_dark_rnd_v018_rm.avif' },
-    { title: 'Portofino', type: '[PREPART]', img: 'img/1706962557-adidas_subculture_3_cover-gigapixel-lines-scale-2_00x.avif' },
-    { title: 'Portofino, font', type: '[PREPART]', img: 'img/1706963110-owater_grid-min.avif' }
+    { title: 'Zaha Hadid, the box', type: '[ESAD AMIENS]', img: 'img/1706522245-found-stella-artois-still-5.jpeg' },
+    { title: 'Baskerville, specimen', type: '[ESAD AMIENS]', img: 'img/1695829139-community_2-2-min.jpeg' },
+    { title: 'Haute Couture', type: '[ESAD AMIENS]', img: 'img/1692388902-346300243_959632565224075_8512582370672738388_n.jpeg' },
+    { title: 'Splash', type: '[ESAD AMIENS]', img: 'img/1695825726-sese_v001_window.jpeg' },
+    { title: 'Vinyls', type: '[ESAD AMIENS]', img: 'img/1689061639-sona_sh03.jpeg' },
+    { title: 'Metamorphosis', type: '[ESAD AMIENS]', img: 'img/1680684622-lp_ss23_dark_rnd_v018_rm.jpeg' },
+    { title: 'Portofino', type: '[PREPART]', img: 'img/1706962557-adidas_subculture_3_cover-gigapixel-lines-scale-2_00x_1.jpeg' },
+    { title: 'Portofino, font', type: '[PREPART]', img: 'img/1706963110-owater_grid-min.jpeg' }
 ];
 // Fonction pour rendre les projets
 function renderProjects() {
