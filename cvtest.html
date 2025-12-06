@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CV de Léa Tramati - Graphiste & Visual Artist basée à Amiens">
+    <title>CV - Léa Tramati | Graphiste & Visual Artist</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* ========================================
+           VARIABLES & RESET
+           ======================================== */
+        :root {
+            --color-bg: #fafafa;
+            --color-text: #000000;
+            --color-text-muted: #666666;
+            --color-border: #e0e0e0;
+            --color-hover: #f0f0f0;
+            --color-accent: #000000;
+            
+            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            
+            --spacing-unit: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        /* ========================================
+           HEADER - Style identique à projets_01
+           ======================================== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--color-border);
+            padding: clamp(1rem, 2vw, 1.5rem) clamp(1.5rem, 4vw, 3rem);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-nav {
+            display: block;
+        }
+
+        .logo-nav img {
+            height: clamp(40px, 5vw, 50px);
+            width: auto;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo-nav:hover img {
+            opacity: 0.7;
+        }
+
+        .header-name {
+            font-size: clamp(0.75rem, 1.5vw, 1rem);
+            font-weight: 500;
+            color: #333;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: clamp(1rem, 2vw, 2rem);
+        }
+
+        .nav-right a {
+            font-size: clamp(0.75rem, 1.2vw, 0.95rem);
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-right a:hover {
+            color: #666;
+        }
+
+        /* ========================================
+           CV LAYOUT
+           ======================================== */
+        .cv-container {
+            margin-top: clamp(100px, 15vw, 140px);
+            padding: clamp(2rem, 5vw, 4rem) clamp(1.5rem, 4vw, 3rem);
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: clamp(3rem, 6vw, 6rem);
+        }
+
+        /* LEFT COLUMN */
+        .left-column {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .contact-info {
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .contact-info a {
+            color: var(--color-text);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: var(--color-text-muted);
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .languages-list,
+        .competences-list {
+            list-style: none;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        /* RIGHT COLUMN */
+        .right-column {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+        }
+
+        .hero-section h1 {
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+        }
+
+        .tags {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--color-text);
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .tag.arrow {
+            background: var(--color-text);
+            color: white;
+        }
+
+        .profile-text {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: #333;
+            max-width: 600px;
+        }
+
+        .main-section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            letter-spacing: -0.01em;
+        }
+
+        .experience-item {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+        }
+
+        .year {
+            font-size: 0.875rem;
+            color: var(--color-text-muted);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-item h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .experience-item ul {
+            list-style: none;
+            padding-left: 1rem;
+        }
+
+        .experience-item li {
+            position: relative;
+            padding-left: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-item li:before {
+            content: "—";
+            position: absolute;
+            left: 0;
+        }
+
+        .education-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .education-item {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 1rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .education-item:last-child {
+            border-bottom: none;
+        }
+
+        .education-item .title {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .education-item .institution {
+            color: var(--color-text-muted);
+        }
+
+        /* FOOTER */
+        footer {
+            margin-top: 6rem;
+            padding: 3rem clamp(1.5rem, 4vw, 3rem);
+            border-top: 1px solid var(--color-border);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .footer-links a {
+            color: var(--color-text);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-text-muted);
+        }
+
+        .footer-separator {
+            color: var(--color-text-muted);
+        }
+
+        /* BACK TO TOP */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--color-text);
+            color: white;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 100;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+        }
+
+        .back-to-top:hover {
+            background: var(--color-text-muted);
+        }
+
+        /* ========================================
+           RESPONSIVE
+           ======================================== */
+        @media (max-width: 968px) {
+            .cv-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-name {
+                position: static;
+                transform: none;
+                font-size: 0.7rem;
+            }
+            
+            header {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+            
+            .nav-right {
+                width: 100%;
+                justify-content: flex-end;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <a href="index.html" class="logo-nav">
+            <img src="img/Untitled_design-removebg-preview.png" alt="Home">
+        </a>
+        
+        <span class="header-name">Léa Tramati, ESAD AMIENS</span>
+        
+        <div class="nav-right">
+            <a href="mailto:tramatilea@gmail.com">tramatilea@gmail.com</a>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="cv-container">
+        <!-- LEFT COLUMN -->
+        <aside class="left-column">
+            <section class="contact-info">
+                <strong>Contact</strong><br>
+                Amiens, France<br>
+                06 75 60 80 93<br>
+                <a href="mailto:tramatilea@gmail.com">tramatilea@gmail.com</a><br>
+                <a href="https://www.instagram.com/ltrmti" target="_blank" rel="noopener noreferrer">@ltrmti</a>
+            </section>
+
+            <section>
+                <h2 class="section-title">Skills</h2>
+                <div class="skills-grid">
+                    <div>Photoshop</div><div>Illustrator</div>
+                    <div>InDesign</div><div>Premiere Pro</div>
+                    <div>After Effects</div><div>HTML & CSS</div>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="section-title">Languages</h2>
+                <ul class="languages-list">
+                    <li><strong>French</strong> — Native</li>
+                    <li><strong>English</strong> — B2</li>
+                    <li><strong>Spanish</strong> — B2</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="section-title">Key Skills</h2>
+                <ul class="competences-list">
+                    <li>Design of communication materials</li>
+                    <li>Creation of web and print mock-ups</li>
+                    <li>Social media management</li>
+                    <li>Teamwork</li>
+                    <li>Creativity and adaptability</li>
+                </ul>
+            </section>
+        </aside>
+
+        <!-- RIGHT COLUMN -->
+        <article class="right-column">
+            <section class="hero-section">
+                <h1>Léa<br>Tramati</h1>
+                <div class="tags">
+                    <span class="tag arrow">→</span>
+                    <span class="tag">Graphic Design Student</span>
+                </div>
+                <p class="profile-text">
+                    Passionate about graphic design, I am continuing my studies at the Amiens School of Art and Design...
+                </p>
+            </section>
+
+            <section class="main-section">
+                <h2>Experiences</h2>
+
+                <article class="experience-item">
+                    <span class="year">2024 - 2025</span>
+                    <h3>Social Media Manager at ESAD Amiens</h3>
+                    <ul>
+                        <li>Managing Instagram</li>
+                        <li>Event coverage</li>
+                        <li>Newsletter creation</li>
+                    </ul>
+                </article>
+
+                <article class="experience-item">
+                    <span class="year">2018 - 2025</span>
+                    <h3>Theater Center Facilitator</h3>
+                    <ul>
+                        <li>Workshop support</li>
+                        <li>Creative activities</li>
+                        <li>Supervision of children</li>
+                    </ul>
+                </article>
+
+                <article class="experience-item">
+                    <span class="year">2023</span>
+                    <h3>Seasonal Staff – Municipal Swimming Pool</h3>
+                    <ul>
+                        <li>Reception</li>
+                        <li>Changing rooms management</li>
+                        <li>Maintenance</li>
+                    </ul>
+                </article>
+            </section>
+
+            <section class="main-section">
+                <h2>Formations et Diplômes</h2>
+
+                <div class="education-grid">
+                    <article class="education-item">
+                        <div class="year">2024</div>
+                        <div>
+                            <div class="title">Graphic Design Training</div>
+                            <div class="institution">ESAD Amiens</div>
+                        </div>
+                    </article>
+                    <article class="education-item">
+                        <div class="year">2023</div>
+                        <div>
+                            <div class="title">Artistic Preparation</div>
+                            <div class="institution">Prép'art</div>
+                        </div>
+                    </article>
+                    <article class="education-item">
+                        <div class="year">2023</div>
+                        <div>
+                            <div class="title">General Baccalaureate</div>
+                            <div class="institution">High School</div>
+                        </div>
+                    </article>
+                    <article class="education-item">
+                        <div class="year">2020</div>
+                        <div>
+                            <div class="title">National Diploma of the Brevet</div>
+                            <div class="institution">Middle School</div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <nav class="footer-links">
+                <a href="Portfolio 2025 - LEA TRAMATI.pdf" download>Portfolio PDF</a>
+                <span class="footer-separator">—</span>
+                <a href="https://www.instagram.com/ltrmti" target="_blank">Instagram</a>
+                <span class="footer-separator">—</span>
+                <a href="https://www.linkedin.com/in/léa-tramati-936222345/" target="_blank">LinkedIn</a>
+            </nav>
+            <div>Amiens, FR · 2025</div>
+        </div>
+    </footer>
+
+    <!-- BACK TO TOP -->
+    <button class="back-to-top" aria-label="Back to top">↑</button>
+
+    <script>
+        // Back to top button
+        const backToTop = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

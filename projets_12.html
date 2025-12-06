@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Passengers-by - Léa Tramati</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+            line-height: 1.6;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e0e0e0;
+            z-index: 1000;
+        }
+
+        .logo-nav img {
+            height: 40px;
+            width: auto;
+        }
+
+        header a {
+            color: #000000;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        header a:hover {
+            opacity: 0.6;
+        }
+
+        .nav-right {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .cv-button {
+            padding: 8px 20px;
+            border: 2px solid #000000;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+
+        .cv-button:hover {
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        .hero-section {
+            padding: 120px 80px 80px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .project-title {
+            font-size: 64px;
+            font-weight: 800;
+            letter-spacing: -2px;
+            margin-bottom: 10px;
+        }
+
+        .project-year {
+            font-size: 24px;
+            font-weight: 300;
+            color: #666666;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding: 40px 80px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .grid-item {
+            overflow: hidden;
+            border-radius: 12px;
+            position: relative;
+            background-color: #f5f5f5;
+            aspect-ratio: 1/1;
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .grid-item.large {
+            grid-column: span 1;
+            grid-row: span 2;
+            aspect-ratio: 1/2;
+        }
+
+        .grid-item.wide {
+            grid-column: span 2;
+            aspect-ratio: 2/1;
+        }
+
+        .text-content {
+            padding: 80px 80px 100px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .text-content h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            letter-spacing: -1px;
+        }
+
+        .text-content p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #333333;
+            font-weight: 400;
+        }
+
+        .project-navigation {
+            max-width: 1600px;
+            margin: clamp(8rem, 15vw, 12rem) auto clamp(6rem, 10vw, 8rem);
+            padding: 0 clamp(1.5rem, 4vw, 80px);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(2rem, 4vw, 4rem);
+        }
+
+        .prev-project,
+        .next-project {
+            padding: clamp(3rem, 6vw, 5rem) 0;
+            border-top: 2px solid #000000;
+        }
+
+        .prev-project-link,
+        .next-project-link {
+            display: block;
+            text-decoration: none;
+            color: #000000;
+            transition: opacity 0.3s ease;
+        }
+
+        .prev-project-link:hover,
+        .next-project-link:hover {
+            opacity: 0.6;
+        }
+
+        .label {
+            font-size: clamp(0.75rem, 1.2vw, 0.875rem);
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: #666666;
+            margin-bottom: 1rem;
+        }
+
+        .prev-project h2,
+        .next-project h2 {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: 900;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+        }
+
+        .year {
+            font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+            color: #666666;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-right {
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .hero-section {
+                padding: 60px 20px 40px;
+            }
+
+            .project-title {
+                font-size: 36px;
+            }
+
+            .project-year {
+                font-size: 18px;
+            }
+
+            .image-grid {
+                grid-template-columns: 1fr;
+                padding: 20px;
+                gap: 15px;
+            }
+
+            .grid-item.large,
+            .grid-item.wide {
+                grid-column: span 1;
+                grid-row: span 1;
+                aspect-ratio: 1/1;
+            }
+
+            .text-content {
+                padding: 40px 20px 60px;
+            }
+
+            .text-content h2 {
+                font-size: 28px;
+            }
+
+            .text-content p {
+                font-size: 16px;
+            }
+
+            .project-navigation {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .prev-project {
+                padding-bottom: clamp(2rem, 4vw, 3rem);
+            }
+
+            .next-project {
+                padding-top: clamp(2rem, 4vw, 3rem);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo-nav">
+            <img src="img/Untitled_design-removebg-preview.png" alt="Home">
+        </a>
+        
+        <a href="#">Léa Tramati, ESAD AMIENS</a>
+        
+        <div class="nav-right">
+            <a href="mailto:tramatilea@gmail.com">tramatilea@gmail.com</a>
+            <a href="cvtest.html" class="cv-button">CV</a>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <div class="project-title">The Passengers-by</div>
+            <div class="project-year">(2025)</div>
+        </div>
+    </section>
+
+    <section class="image-section">
+        <div class="image-grid">
+            <div class="grid-item large">
+                <img src="img/051.jpg" alt="The Passengers-by - Main Visual">
+            </div>
+            <div class="grid-item">
+                <img src="img/052.jpg" alt="The Passengers-by - Visual 2">
+            </div>
+            <div class="grid-item">
+                <img src="img/053.jpg" alt="The Passengers-by - Visual 3">
+            </div>
+            <div class="grid-item wide">
+                <img src="img/054.jpg" alt="The Passengers-by - Visual 4">
+            </div>
+        </div>
+    </section>
+
+    <section class="text-content">
+        <h2>Description.</h2>
+        <p>In this project, I sought to capture ordinary people, passersby, more precisely, focusing on their gestures and attitudes. I explore their behavior in front of the camera by juxtaposing two images: one taken without their knowledge.</p>
+    </section>
+
+    <section class="project-navigation">
+        <div class="prev-project">
+            <a href="projets_11.html" class="prev-project-link">
+                <div class="label">[PREVIOUS PROJECT]</div>
+                <h2>← The Passengers-by, font</h2>
+                <div class="year">(2025)</div>
+            </a>
+        </div>
+
+        <div class="next-project">
+            <a href="projets_13.html" class="next-project-link">
+                <div class="label">[NEXT PROJECT]</div>
+                <h2>Soon →</h2>
+                <div class="year">(2025)</div>
+            </a>
+        </div>
+    </section>
+</body>
+</html>
